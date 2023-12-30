@@ -1,3 +1,4 @@
+**Calculation of the Internal Rate of Return**
 This repo enables the calculation of the internal rate of return (irr) of given cashflows. 
 Until now two options are available: 
 1. Enter a date and a cashflow that has been made on this date; afterwards a list of all of the cashflows is shown and the irr will be calculated.
