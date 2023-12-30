@@ -6,11 +6,12 @@ import pandas as pd
 import logging
 from dateutil.relativedelta import relativedelta
 from scipy.optimize import fsolve
+from utils.singleton import Singleton
 
 logger = logging.getLogger()
 
 
-class CFCollectorandStorage:
+class CFCollectorandStorage(metaclass=Singleton):
 
     def __init__(self, main_path):
         self._main_path = str(main_path)
@@ -86,5 +87,5 @@ class CFCollectorandStorage:
         self._data_to_calc = self._cf_storage.copy()
         self._data_to_calc["diff"] = [-(pd.Timestamp.today() - x).days/365 for x in self._data_to_calc.index]
 
-
-
+    def sort(self):
+        self._cf_storage.sort_index(inplace=True)
